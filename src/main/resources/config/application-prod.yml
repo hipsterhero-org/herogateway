@@ -41,7 +41,7 @@ spring:
     username:
     password:
   r2dbc:
-    url: postgres://iojsrrqmgfyikq:dc9b09c5c18aa45aa10298bb80ea98a10547ef73513afa00af229b6485c54fb7@ec2-52-213-119-221.eu-west-1.compute.amazonaws.com:5432/df8u251saq8me6
+    url: r2dbc:postgres://iojsrrqmgfyikq:dc9b09c5c18aa45aa10298bb80ea98a10547ef73513afa00af229b6485c54fb7@ec2-52-213-119-221.eu-west-1.compute.amazonaws.com:5432/df8u251saq8me6
     username: iojsrrqmgfyikq
     password: dc9b09c5c18aa45aa10298bb80ea98a10547ef73513afa00af229b6485c54fb7
   thymeleaf:
