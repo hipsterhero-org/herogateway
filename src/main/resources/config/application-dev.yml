@@ -21,6 +21,13 @@ logging:
     com.mycompany.myapp: DEBUG
 
 spring:
+  cloud:
+    gateway:
+      routes:
+      - id: businessLogic
+        uri: http://localhost:8081/
+        predicates:
+        - Path=/api/bonifica/**
   devtools:
     restart:
       enabled: true

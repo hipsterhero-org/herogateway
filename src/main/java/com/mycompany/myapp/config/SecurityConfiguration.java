@@ -97,6 +97,7 @@ public class SecurityConfiguration {
             .pathMatchers("/api/activate").permitAll()
             .pathMatchers("/api/authenticate").permitAll()
             .pathMatchers("/api/account/reset-password/init").permitAll()
+            .pathMatchers("/api/bonifica/**").permitAll()
             .pathMatchers("/api/account/reset-password/finish").permitAll()
             .pathMatchers("/api/auth-info").permitAll()
             .pathMatchers("/api/admin/**").hasAuthority(AuthoritiesConstants.ADMIN)

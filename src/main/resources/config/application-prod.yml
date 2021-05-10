@@ -26,6 +26,13 @@ management:
         enabled: false
 
 spring:
+  cloud:
+    gateway:
+      routes:
+      - id: businessLogic
+        uri: http://localhost:8081/
+        predicates:
+        - Path=/api/**
   devtools:
     restart:
       enabled: false
