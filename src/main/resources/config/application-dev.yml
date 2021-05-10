@@ -25,7 +25,7 @@ spring:
     gateway:
       routes:
       - id: businessLogic
-        uri: http://localhost:8081/
+        uri: https://heromicroservice.herokuapp.com/
         predicates:
         - Path=/api/bonifica/**
   devtools:
