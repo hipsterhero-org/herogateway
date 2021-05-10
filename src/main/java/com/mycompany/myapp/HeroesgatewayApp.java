@@ -20,18 +20,18 @@ import tech.jhipster.config.JHipsterConstants;
 
 @SpringBootApplication
 @EnableConfigurationProperties({ LiquibaseProperties.class, ApplicationProperties.class })
-public class HerogatewayApp {
+public class HeroesgatewayApp {
 
-    private static final Logger log = LoggerFactory.getLogger(HerogatewayApp.class);
+    private static final Logger log = LoggerFactory.getLogger(HeroesgatewayApp.class);
 
     private final Environment env;
 
-    public HerogatewayApp(Environment env) {
+    public HeroesgatewayApp(Environment env) {
         this.env = env;
     }
 
     /**
-     * Initializes herogateway.
+     * Initializes heroesgateway.
      * <p>
      * Spring profiles can be configured with a program argument --spring.profiles.active=your-active-profile
      * <p>
@@ -64,7 +64,7 @@ public class HerogatewayApp {
      * @param args the command line arguments.
      */
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(HerogatewayApp.class);
+        SpringApplication app = new SpringApplication(HeroesgatewayApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         logApplicationStartup(env);

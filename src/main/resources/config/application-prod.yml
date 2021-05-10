@@ -34,18 +34,16 @@ spring:
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: prod
-    url: jdbc:postgres://iojsrrqmgfyikq:dc9b09c5c18aa45aa10298bb80ea98a10547ef73513afa00af229b6485c54fb7@ec2-52-213-119-221.eu-west-1.compute.amazonaws.com:5432/df8u251saq8me6
+    url: jdbc:postgresql://localhost:5432/heroesgateway
   mail:
     host: localhost
     port: 25
     username:
     password:
   r2dbc:
-    properties:
-       sslMode: REQUIRE
-    url:r2dbc:postgres://iojsrrqmgfyikq:dc9b09c5c18aa45aa10298bb80ea98a10547ef73513afa00af229b6485c54fb7@ec2-52-213-119-221.eu-west-1.compute.amazonaws.com:5432/df8u251saq8me6?sslmode=require
-    username:iojsrrqmgfyikq
-    password:dc9b09c5c18aa45aa10298bb80ea98a10547ef73513afa00af229b6485c54fb7
+    url: r2dbc:postgresql://localhost:5432/heroesgateway
+    username: heroesgateway
+    password:
   thymeleaf:
     cache: true
   sleuth:
@@ -60,7 +58,7 @@ spring:
 
 # ===================================================================
 # To enable TLS in production, generate a certificate using:
-# keytool -genkey -alias herogateway -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+# keytool -genkey -alias heroesgateway -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
 #
 # You can also use Let's Encrypt:
 # https://maximilian-boehm.com/hp2121/Create-a-Java-Keystore-JKS-from-Let-s-Encrypt-Certificates.htm
@@ -103,7 +101,7 @@ jhipster:
         # - In the JHipster Registry (which includes a Spring Cloud Config server)
         # - In a separate `application-prod.yml` file, in the same folder as your executable JAR file
         # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-        base64-secret: NzE3NDBmMmY4OWE3NmQ3YzhmNjBlODJkODNjZGY0YjA3YzRjNTE4NDI2ZGViMzljMTU5M2QwOGM0NmVjYTEyMDFlMWI4NjYzNjdmYzIzYzU5NTczYWZhOTllMTZlOWQ2OWFiYWEyZjEwNGQ5ZjkxYjVkZjg1ZWRhODM3Yjk5MTc=
+        base64-secret: ZGNhMDYxZTBiYmNhMDE3OGMwZTk5YjA5ODlhODdmNmVmNWM3YTM3ZjU0NWMyMDAzZDUzZWM0YzU5ODI0ZTg2N2QyMjkyODk4ZGZiMzA5YWE2YjkzMGVjMjNjZjIwMzY2MTEyYTVhZGZlN2U3ZDYyNTc1YTZjNjNmODE1MTQ3M2E=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

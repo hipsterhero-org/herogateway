@@ -24,16 +24,20 @@ spring:
   devtools:
     restart:
       enabled: true
-      additional-exclude: static/**
+      additional-exclude: static/**,.h2.server.properties
     livereload:
       enabled: false # we use Webpack dev server + BrowserSync for livereload
   jackson:
     serialization:
       indent-output: true
+  h2:
+    console:
+      # disable spring boot built-in h2-console since we start it manually with correct configuration
+      enabled: false
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
-    url: jdbc:postgresql://localhost:5432/herogateway
+    url: jdbc:h2:file:./target/h2db/db/heroesgateway;DB_CLOSE_DELAY=-1
   mail:
     host: localhost
     port: 25
@@ -42,9 +46,9 @@ spring:
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   r2dbc:
-    url: r2dbc:postgres://iojsrrqmgfyikq:dc9b09c5c18aa45aa10298bb80ea98a10547ef73513afa00af229b6485c54fb7@ec2-52-213-119-221.eu-west-1.compute.amazonaws.com:5432/df8u251saq8me6
-    username: iojsrrqmgfyikq
-    password: dc9b09c5c18aa45aa10298bb80ea98a10547ef73513afa00af229b6485c54fb7
+    url: r2dbc:h2:file://././target/h2db/db/heroesgateway;DB_CLOSE_DELAY=-1
+    username: heroesgateway
+    password:
   thymeleaf:
     cache: false
   sleuth:
@@ -85,7 +89,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: NzE3NDBmMmY4OWE3NmQ3YzhmNjBlODJkODNjZGY0YjA3YzRjNTE4NDI2ZGViMzljMTU5M2QwOGM0NmVjYTEyMDFlMWI4NjYzNjdmYzIzYzU5NTczYWZhOTllMTZlOWQ2OWFiYWEyZjEwNGQ5ZjkxYjVkZjg1ZWRhODM3Yjk5MTc=
+        base64-secret: ZGNhMDYxZTBiYmNhMDE3OGMwZTk5YjA5ODlhODdmNmVmNWM3YTM3ZjU0NWMyMDAzZDUzZWM0YzU5ODI0ZTg2N2QyMjkyODk4ZGZiMzA5YWE2YjkzMGVjMjNjZjIwMzY2MTEyYTVhZGZlN2U3ZDYyNTc1YTZjNjNmODE1MTQ3M2E=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

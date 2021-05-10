@@ -18,7 +18,7 @@ spring:
     # Uncomment the following line to enable tests against production database type rather than H2, using Testcontainers
     #active: testcontainers
   application:
-    name: herogateway
+    name: heroesgateway
   autoconfigure:
     exclude:
       - org.springframework.cloud.gateway.config.GatewayMetricsAutoConfiguration
@@ -27,7 +27,7 @@ spring:
       write-durations-as-timestamps: false
   liquibase:
     contexts: test
-    url: jdbc:h2:mem:herogateway;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:heroesgateway;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
   mail:
     host: localhost
   main:
@@ -35,18 +35,18 @@ spring:
   messages:
     basename: i18n/messages
   r2dbc:
-    url: r2dbc:h2:mem:///herogateway;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: r2dbc:h2:mem:///heroesgateway;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: r2dbc
     password:
   task:
     execution:
-      thread-name-prefix: herogateway-task-
+      thread-name-prefix: heroesgateway-task-
       pool:
         core-size: 1
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: herogateway-scheduling-
+      thread-name-prefix: heroesgateway-scheduling-
       pool:
         size: 1
   thymeleaf:
@@ -64,7 +64,7 @@ server:
 
 jhipster:
   clientApp:
-    name: 'herogatewayApp'
+    name: 'heroesgatewayApp'
   logging:
     # To test json console appender
     use-json-format: false
@@ -80,7 +80,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: NzE3NDBmMmY4OWE3NmQ3YzhmNjBlODJkODNjZGY0YjA3YzRjNTE4NDI2ZGViMzljMTU5M2QwOGM0NmVjYTEyMDFlMWI4NjYzNjdmYzIzYzU5NTczYWZhOTllMTZlOWQ2OWFiYWEyZjEwNGQ5ZjkxYjVkZjg1ZWRhODM3Yjk5MTc=
+        base64-secret: ZGNhMDYxZTBiYmNhMDE3OGMwZTk5YjA5ODlhODdmNmVmNWM3YTM3ZjU0NWMyMDAzZDUzZWM0YzU5ODI0ZTg2N2QyMjkyODk4ZGZiMzA5YWE2YjkzMGVjMjNjZjIwMzY2MTEyYTVhZGZlN2U3ZDYyNTc1YTZjNjNmODE1MTQ3M2E=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
 # ===================================================================

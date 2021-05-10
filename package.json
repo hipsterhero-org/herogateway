@@ -1,8 +1,8 @@
 {
-  "name": "herogateway",
+  "name": "heroesgateway",
   "version": "0.0.1-SNAPSHOT",
   "private": true,
-  "description": "Description for herogateway",
+  "description": "Description for heroesgateway",
   "license": "UNLICENSED",
   "scripts": {
     "prettier:check": "prettier --check \"{,src/**/,webpack/}*.{md,json,yml,html,js,ts,tsx,css,scss,java}\"",
